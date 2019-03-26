@@ -1,19 +1,23 @@
 # mdb-build-notification #
 
-
-
 ## Install ##
 
 ``` bash
 
-npm install mdb-build-notification
+npm install mdb-build-notification -g
 
 ```
 
-or
+## Setup ##
+
+You will first need to configure your local AWS credentials and setup an AWS SQS queue.
+
+## Running ##
+
+After it is installed on your computer, you can run the `` and specify your SQS endpoint.
 
 ``` bash
 
-npm install mdb-build-notification --save
+mdb-build-notification https://sqs.us-east-1.amazonaws.com/############/build-notification
 
 ```

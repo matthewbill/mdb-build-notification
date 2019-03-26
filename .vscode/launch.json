@@ -6,10 +6,10 @@
           "type": "node",
           "request": "launch",
           "name": "Debug",
-          "program": "${workspaceRoot}/index.js",
+          "program": "${workspaceRoot}/bin/mdb-build-notification.js",
           "env": {
               "NODE_ENV": "development",
-              "IS_DEBUG": "true"
+              "IS_DEBUG": "true",
           },
           "stopOnEntry":true
       },
