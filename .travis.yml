@@ -24,9 +24,9 @@ script:
 - VERSION="${VERSION//\"}"
 - echo $VERSION;
 # Sonar
-- mdb-bt sonar-update sonar-project.properties -v $VERSION -b master
-- cat sonar-project.properties
-- sonar-scanner
+# - mdb-bt sonar-update sonar-project.properties -v $VERSION -b master
+# - cat sonar-project.properties
+# - sonar-scanner
 
 before_deploy:
 # Git Configuration
