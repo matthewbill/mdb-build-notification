@@ -1,0 +1,55 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+
+      {
+          "type": "node",
+          "request": "launch",
+          "name": "Debug",
+          "program": "${workspaceRoot}/index.js",
+          "env": {
+              "NODE_ENV": "development",
+              "IS_DEBUG": "true"
+          },
+          "stopOnEntry":true
+      },
+      {
+          "name": "Unit Tests",
+          "type": "node",
+          "request": "launch",
+          "port": 9229,
+          "runtimeArgs": [
+              "--inspect-brk",
+              "${workspaceRoot}/node_modules/jest/bin/jest.js",
+              "__tests__",
+              "--runInBand"
+            ],
+          "env": {
+              "NODE_ENV": "development",
+              "IS_DEBUG": "true"
+          },
+          "console": "integratedTerminal",
+          "internalConsoleOptions": "neverOpen",
+          "stopOnEntry":true
+      },
+      {
+          "name": "Integration Tests",
+          "type": "node",
+          "request": "launch",
+          "port": 9229,
+          "runtimeArgs": [
+              "--inspect-brk",
+              "${workspaceRoot}/node_modules/jest/bin/jest.js",
+              "__int_tests__",
+              "--runInBand"
+            ],
+          "env": {
+              "NODE_ENV": "development",
+              "IS_DEBUG": "true"
+          },
+          "console": "integratedTerminal",
+          "internalConsoleOptions": "neverOpen",
+          "stopOnEntry":true
+      }
+  ]
+}

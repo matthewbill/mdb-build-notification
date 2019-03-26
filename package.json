@@ -1,0 +1,34 @@
+{
+    "name": "mdb-build-notification",
+    "version": "0.1.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "lint": "eslint .",
+        "docs": "jsdoc ./src -r -d ./docs/api --verbose",
+        "test": "jest __tests__ --coverage",
+        "int-test": "jest __int_tests__ --coverage"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/matthewbill/mdb-build-notification.git"
+    },
+    "keywords": [
+        "mdb"
+    ],
+    "author": "Matthew Bill",
+    "license": "MIT",
+    "homepage": "https://github.com/matthewbill/mdb-build-notification#readme",
+    "bugs": "https://github.com/matthewbill/mdb-build-notification/issues/",
+    "dependencies": {},
+    "devDependencies": {
+        "jsdoc": "3.5.5",
+        "jest": "24.1.0",
+        "eslint-config-mdb": "0.1.1",
+        "eslint": "5.14.0",
+        "eslint-config-airbnb": "17.1.0",
+        "eslint-plugin-import": "2.14.0",
+        "eslint-plugin-jsx-a11y": "6.1.1",
+        "eslint-plugin-react": "7.11.1"
+    }
+}

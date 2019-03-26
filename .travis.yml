@@ -1,0 +1,52 @@
+sudo: required
+dist: trusty
+language: node_js
+node_js:
+  - "node"
+
+branches:
+  only:
+  - master
+
+before_install:
+# Setup
+- sudo apt-get update
+- sudo apt-get install -y jq
+
+script:
+- npm audit
+- npm run lint
+- npm test
+# Version
+- npm config set git-tag-version=false # git-tag-version is false otherwise cause infinite loop
+- npm version patch
+- export VERSION=$(jq '.version' package.json)
+- VERSION="${VERSION//\"}"
+- echo $VERSION;
+# Sonar
+- mdb-bt sonar-update sonar-project.properties -v $VERSION -b master
+- cat sonar-project.properties
+- sonar-scanner
+
+before_deploy:
+# Git Configuration
+- git checkout master
+- git remote set-url origin https://$GIT_HUB_USER:$GIT_HUB_TOKEN@github.com/matthewbill/mdb-build-notification.git
+- git config --global push.default simple
+- git config user.name "Travis CI"
+- git config user.email "travis@travis-ci.org"
+
+deploy:
+  provider: npm
+  email: $MDB_NPM_EMAIL
+  api_key: $MDB_NPM_TOKEN
+
+after_deploy:
+# Update Repo
+- git add package.json
+- git commit -m "[skip ci]"
+- git push
+- git tag $VERSION
+- git push --tags
+# Docs
+- npm run docs

@@ -1,0 +1,19 @@
+# Integration Tests
+__int_tests__/*
+
+# Jest Mocks for node_modules
+__mocks__/*
+
+# Unit Tests
+__tests__/*
+
+# Configuration files for VS Code
+.vscode/*
+
+# Code Coverage Files
+coverage/*
+
+# JS Docs
+docs/*
+
+node_modules/*
