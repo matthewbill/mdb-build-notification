@@ -7,7 +7,7 @@
 const queueUrl = process.argv[2];
 let pollDelay = process.argv[3];
 
-if(!pollDelay) {
+if (!pollDelay) {
   pollDelay = 2000;
 }
 

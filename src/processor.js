@@ -22,7 +22,7 @@ class Processor {
     const self = processor;
     console.log('checking messages');
     const messages = await self.messageService.checkMessages({
-      waitTimeSeconds: 2
+      waitTimeSeconds: 2,
     });
     console.log('finished checking messages');
     if (messages) {
