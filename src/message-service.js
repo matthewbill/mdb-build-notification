@@ -17,11 +17,13 @@ class MessageService {
     });
   }
 
-  async checkMessages() {
+  async checkMessages(options) {
     const self = this;
     try {
+      console.log(`Checking message with a wait time in seconds of ${options.waitTimeSeconds}`);
       const result = await self.sqsWrapper.receiveMessage({
         queueUrl: self.queueUrl,
+        delay: options.waitTimeSeconds,
       });
       const messages = result.Messages;
       return messages;

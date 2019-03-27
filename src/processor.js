@@ -5,9 +5,9 @@ const MessageService = require('./message-service.js');
 class Processor {
   constructor(options) {
     const self = this;
-    self.delay = options.delay;
+    self.pollDelay = options.pollDelay;
     self.messageService = new MessageService({
-      queueUrl: process.argv[2],
+      queueUrl: options.queueUrl,
     });
     self.soundPlayer = new SoundPlayer();
   }
@@ -21,8 +21,12 @@ class Processor {
   async process(processor) {
     const self = processor;
     console.log('checking messages');
-    const messages = await self.messageService.checkMessages();
+    const messages = await self.messageService.checkMessages({
+      waitTimeSeconds: 2
+    });
+    console.log('finished checking messages');
     if (messages) {
+      console.log(`${messages.length} messages retrieved`);
       for (let i = 0; i < messages.length; i += 1) {
         const message = messages[i];
         console.log(`message retrieved ${message.Body}`);
@@ -34,7 +38,8 @@ class Processor {
     } else {
       console.log('no messages detected');
     }
-    setTimeout(self.process, self.delay, processor);
+    console.log('finished polling');
+    setTimeout(self.process, self.pollDelay, processor);
   }
 }
 module.exports = Processor;

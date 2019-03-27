@@ -4,7 +4,7 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "start": "node ./bin/mdb-build-notification.js https://sqs.us-east-1.amazonaws.com/############/build-notification",
+        "start": "node ./bin/mdb-build-notification.js https://sqs.us-east-1.amazonaws.com/187863882135/build-notification-queue",
         "lint": "eslint .",
         "docs": "jsdoc ./src -r -d ./docs/api --verbose",
         "test": "jest __tests__ --coverage",
@@ -23,7 +23,7 @@
     "bugs": "https://github.com/matthewbill/mdb-build-notification/issues/",
     "dependencies": {
         "express": "4.16.4",
-        "mdb-datastores": "0.1.4",
+        "mdb-datastores": "0.1.5",
         "play-sound": "1.1.3",
         "say": "0.15.0"
     },
