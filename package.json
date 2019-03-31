@@ -4,7 +4,7 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "start": "node ./bin/mdb-build-notification.js https://sqs.us-east-1.amazonaws.com/187863882135/build-notification-queue",
+        "start": "node ./bin/mdb-build-notification.js https://sqs.us-east-1.amazonaws.com/##########/build-notification-queue 2000",
         "lint": "eslint .",
         "docs": "jsdoc ./src -r -d ./docs/api --verbose",
         "test": "jest __tests__ --coverage",

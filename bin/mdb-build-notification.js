@@ -12,7 +12,7 @@ if (!pollDelay) {
 }
 
 console.log(`queue url: ${queueUrl}`);
-console.log(`poll delay: ${pollDelay}`);
+console.log(`poll delay: ${pollDelay} ms`);
 
 require('../src/webhost.js');
 const Processor = require('../src/processor.js');
