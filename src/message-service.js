@@ -11,10 +11,15 @@ class MessageService {
 
   async sendMessage(message) {
     const self = this;
-    await self.sqsWrapper.sendMessage({
-      messageBody: message,
-      queueUrl: self.queueUrl,
-    });
+    try {
+      await self.sqsWrapper.sendMessage({
+        messageBody: message,
+        queueUrl: self.queueUrl,
+      });
+    } catch (error) {
+      console.log(error);
+      throw error;
+    }
   }
 
   async checkMessages(options) {

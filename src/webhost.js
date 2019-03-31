@@ -5,10 +5,11 @@ const MessageService = require('./message-service.js');
 
 const app = express();
 const port = 3000;
+const queueUrl = process.argv[2];
 
 const soundPlayer = new SoundPlayer();
 const messageService = new MessageService({
-  queueUrl: 'https://sqs.us-east-1.amazonaws.com/030457898068/build-notification',
+  queueUrl,
 });
 
 app.get('/say', (req, res) => {

@@ -11,6 +11,7 @@
               "NODE_ENV": "development",
               "IS_DEBUG": "true",
           },
+          "args": ["https://sqs.us-east-1.amazonaws.com/187863882135/build-notification-queue"],
           "stopOnEntry":true
       },
       {
