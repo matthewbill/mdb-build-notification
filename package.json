@@ -22,7 +22,7 @@
     "homepage": "https://github.com/matthewbill/mdb-build-notification#readme",
     "bugs": "https://github.com/matthewbill/mdb-build-notification/issues/",
     "dependencies": {
-        "express": "4.16.4",
+        "express": "4.17.3",
         "mdb-datastores": "0.1.5",
         "play-sound": "1.1.3",
         "say": "0.15.0"
